@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.example.yourdaymobile.ui.mainpage.MainPageFragment"
+        android:label="main_page_fragment"
+        tools:layout="@layout/main_page_fragment" />
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="com.example.yourdaymobile.ui.options.OptionsFragment"
+        android:label="options_fragment"
+        tools:layout="@layout/options_fragment" >
+        <action
+            android:id="@+id/action_optionsFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/todosFragment"
+        android:name="com.example.yourdaymobile.ui.wall.TodosFragment"
+        android:label="todos_fragment"
+        tools:layout="@layout/todos_fragment" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.yourdaymobile.ui.auth.AuthFragment"
+        android:label="AuthFragment" >
+        <action
+            android:id="@+id/action_authFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+</navigation>
