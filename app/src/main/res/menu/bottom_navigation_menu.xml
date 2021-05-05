@@ -5,15 +5,15 @@
         android:id="@+id/mainPageFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_check_circle_24"
-        android:title="Zadania" />
+        android:title="Main" />
     <item
         android:id="@+id/todosFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_group_24"
-        android:title="Team" />
+        android:title="Wall" />
     <item
         android:id="@+id/optionsFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Ustawienia"/>
+        android:title="Options"/>
 </menu>

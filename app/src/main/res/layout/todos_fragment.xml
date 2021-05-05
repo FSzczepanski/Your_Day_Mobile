@@ -6,28 +6,20 @@
     android:orientation="vertical"
     tools:context=".ui.wall.TodosFragment">
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:background="@color/accent" />
+
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="194dp"
+        android:layout_height="77dp"
         android:src="@drawable/wall" />
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:background="@color/accent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wallRV"
         android:layout_width="match_parent"
-        android:layout_marginEnd="20px"
-        android:layout_marginStart="20px"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:minWidth="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="3dp" />
 

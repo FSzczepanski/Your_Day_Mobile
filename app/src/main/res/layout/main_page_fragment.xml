@@ -3,49 +3,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".ui.mainpage.MainPageFragment">
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:background="@color/accent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/todosRV"
-        android:layout_width="match_parent"
-        android:layout_marginEnd="20px"
-        android:layout_marginStart="20px"
-        android:minWidth="300dp"
-        android:layout_height="wrap_content"
-        android:minHeight="300dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="3dp" />
-
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:background="@color/accent" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="237dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/accent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/todosRV"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="3dp"
+            android:minWidth="300dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addNewTodo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:fabSize="mini"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="62dp"
+            android:backgroundTint="@color/accent2"
+            android:src="@drawable/ic_baseline_add_24" />
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/accent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:background="@color/dark"
         android:layout_gravity="center_horizontal">
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -67,7 +85,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/linear"
             android:background="@layout/layout_rounded"
             android:orientation="vertical">
@@ -107,24 +125,24 @@
         </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/linear"
-            android:orientation="vertical">
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="3dp"
-                android:layout_marginTop="30dp"
-                android:background="@color/accent" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignBottom="@+id/linear"-->
+<!--            android:orientation="vertical">-->
+<!--            <View-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="3dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:background="@color/accent" />-->
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="114dp"
-                android:layout_gravity="bottom"
-                android:src="@drawable/wall2" />
+<!--&lt;!&ndash;            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="114dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_gravity="bottom"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:src="@drawable/wall2" />&ndash;&gt;-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
     </LinearLayout>
 
 

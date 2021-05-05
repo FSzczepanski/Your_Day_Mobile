@@ -2,6 +2,7 @@
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="simpleRow">#78B2BC</color>
+    <color name="simpleRow2">#8EC3CC</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="accent">#D9D9D9</color>
     <color name="accent2">#F1F1F1</color>

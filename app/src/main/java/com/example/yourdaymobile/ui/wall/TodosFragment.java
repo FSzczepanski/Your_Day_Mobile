@@ -16,8 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yourdaymobile.R;
-import com.example.yourdaymobile.ui.data.Todo;
-import com.example.yourdaymobile.ui.mainpage.TodosAdapter;
 
 import java.util.ArrayList;
 

@@ -10,10 +10,13 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static android.view.View.VISIBLE;
+
 public class MainActivity extends AppCompatActivity {
     private static BottomNavigationView bottomNavigationView;
     private NavController navController;
     private static View toolbar;
+    private String authToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navController = Navigation.findNavController(this, R.id.my_nav_host_fragment);
         initBottomTabNav();
+        Singleton singleton = new Singleton();
         toolbar = findViewById(R.id.toolbar);
     }
 
@@ -30,4 +34,23 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 
+    public static void showTabLayout() {
+        if (bottomNavigationView.getVisibility()==View.GONE) {
+            bottomNavigationView.setVisibility(VISIBLE);
+            toolbar.setVisibility(VISIBLE);
+        }
+    }
+
+    public static void hideTabLayout() {
+        bottomNavigationView.setVisibility(View.GONE);
+        toolbar.setVisibility(View.GONE);
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
 }

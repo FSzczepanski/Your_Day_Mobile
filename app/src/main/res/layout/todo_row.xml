@@ -12,18 +12,26 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/todo"
-            android:layout_width="315dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="80dp"
-            android:layout_marginLeft="40dp"
+
             android:background="@drawable/goal_shape"
-            android:layout_height="96dp">
+            android:layout_height="76dp">
+
+            <LinearLayout
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/goal_shape_left"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent">
 
 
+            </LinearLayout>
             <TextView
                 android:id="@+id/todoTextView"
-                android:layout_width="198dp"
-                android:layout_height="77dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginEnd="50dp"
                 android:layout_marginStart="64dp"
                 android:text="Goal conent"
                 android:textColor="@color/white"
@@ -35,10 +43,10 @@
 
             <CheckBox
                 android:id="@+id/idDoneCB"
-                android:layout_width="197dp"
-                android:layout_height="91dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="4dp"
                 android:scaleX="1.30"
                 android:scaleY="1.30"
                 android:textSize="18sp"

@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainPageFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="com.example.yourdaymobile.ui.mainpage.MainPageFragment"
         android:label="main_page_fragment"
-        tools:layout="@layout/main_page_fragment" />
+        tools:layout="@layout/main_page_fragment" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
     <fragment
         android:id="@+id/optionsFragment"
         android:name="com.example.yourdaymobile.ui.options.OptionsFragment"
@@ -30,6 +34,11 @@
         android:label="AuthFragment" >
         <action
             android:id="@+id/action_authFragment_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
+            app:destination="@id/mainPageFragment" >
+<!--            <argument-->
+<!--                android:name="authToken"-->
+<!--                app:argType="String"-->
+<!--                android:defaultValue="wrong" />-->
+        </action>
     </fragment>
 </navigation>

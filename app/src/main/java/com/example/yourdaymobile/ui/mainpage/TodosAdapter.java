@@ -1,6 +1,7 @@
 package com.example.yourdaymobile.ui.mainpage;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yourdaymobile.R;
-import com.example.yourdaymobile.ui.data.Todo;
+import com.example.yourdaymobile.data.Todo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder> {
@@ -24,9 +34,9 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
     @Override
     public TodosAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-            View view = inflater.inflate(R.layout.todo_row,parent,false);
+        View view = inflater.inflate(R.layout.todo_row, parent, false);
 
-            return new TodosAdapter.MyViewHolder(view);
+        return new TodosAdapter.MyViewHolder(view);
     }
 
     public TodosAdapter(Context context, ArrayList<Todo> todos) {

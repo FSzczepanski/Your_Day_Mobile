@@ -1,12 +1,22 @@
-package com.example.yourdaymobile.ui.data;
+package com.example.yourdaymobile.data;
 
 public class Todo {
+    private String id;
     private String text;
     private Boolean isDone;
 
-    public Todo(String text, Boolean isDone) {
+    public Todo(String id, String text, Boolean isDone) {
+        this.id = id;
         this.text = text;
         this.isDone = isDone;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getText() {
