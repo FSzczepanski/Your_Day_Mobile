@@ -45,10 +45,9 @@ public class AuthViewModel extends ViewModel {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(twojeIp"/auth/login", jsonobject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("http://192.168.0.12:3000/auth/login", jsonobject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("wprked", response.toString());
                 callback.onCallback(response.toString());
             }
         }, new Response.ErrorListener() {

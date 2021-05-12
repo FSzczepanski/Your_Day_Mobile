@@ -25,9 +25,9 @@
     </fragment>
     <fragment
         android:id="@+id/todosFragment"
-        android:name="com.example.yourdaymobile.ui.wall.TodosFragment"
+        android:name="com.example.yourdaymobile.ui.wall.WallFragment"
         android:label="todos_fragment"
-        tools:layout="@layout/todos_fragment" />
+        tools:layout="@layout/wall_fragment" />
     <fragment
         android:id="@+id/authFragment"
         android:name="com.example.yourdaymobile.ui.auth.AuthFragment"

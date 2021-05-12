@@ -41,7 +41,7 @@ public class OptionsFragment extends Fragment {
     }
 
     private void logout(){
-        Button logoutButton = root.findViewById(R.id.logoutButton);
+        View logoutButton = root.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,4 +1,4 @@
-package com.example.yourdaymobile;
+package com.example.yourdaymobile.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,8 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.yourdaymobile.R;
+import com.example.yourdaymobile.utilities.Singleton;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static android.view.View.VISIBLE;

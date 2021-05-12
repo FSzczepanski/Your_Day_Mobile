@@ -1,4 +1,4 @@
-package com.example.yourdaymobile;
+package com.example.yourdaymobile.utilities;
 
 public class Singleton {
     private static Singleton instance = null;

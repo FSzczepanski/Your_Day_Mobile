@@ -6,14 +6,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yourdaymobile.R;
 import com.example.yourdaymobile.data.Todo;
+import com.example.yourdaymobile.utilities.OnHttpActionDone;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +34,10 @@ import java.util.ArrayList;
 public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder> {
     Context context;
     private ArrayList<Todo> todos;
+    private MainPageViewModel mViewModel;
+    private OnHttpActionDone onAction;
+    private EditTodoDialog dialog;
+    private FragmentManager fragmentManager;
 
     @NonNull
     @Override
@@ -39,9 +48,12 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
         return new TodosAdapter.MyViewHolder(view);
     }
 
-    public TodosAdapter(Context context, ArrayList<Todo> todos) {
+    public TodosAdapter(Context context, ArrayList<Todo> todos, MainPageViewModel mViewModel, FragmentManager fm, OnHttpActionDone onAction) {
         this.context = context;
         this.todos = todos;
+        this.mViewModel =mViewModel;
+        this.onAction = onAction;
+        this.fragmentManager = fm;
     }
 
     @Override
@@ -50,6 +62,19 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
 
         holder.todoTextView.setText(currentItem.getText());
         holder.isDone.setChecked(currentItem.getDone());
+        String id = currentItem.getId();
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog = new EditTodoDialog(mViewModel, id, new OnHttpActionDone() {
+                    @Override
+                    public void onDone() {
+                        onAction.onDone();
+                    }
+                });
+                dialog.show(fragmentManager, "DialogFragment");
+            }
+        });
 
     }
 
@@ -64,11 +89,13 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.MyViewHolder
 
         TextView todoTextView;
         CheckBox isDone;
+        AppCompatImageButton editButton;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             todoTextView = itemView.findViewById(R.id.todoTextView);
             isDone = itemView.findViewById(R.id.idDoneCB);
+            editButton = itemView.findViewById(R.id.editTodoButton);
 
         }
     }

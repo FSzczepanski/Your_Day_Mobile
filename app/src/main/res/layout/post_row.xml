@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/realdark"
-    android:layout_height="wrap_content">
+    android:background="@color/accent2"
+    android:layout_height="83dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/todo"
             android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
             android:background="@drawable/goal_shape"
             android:layout_height="76dp">
 
@@ -36,15 +35,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:background="@drawable/textbox_shape"
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
+                    android:id="@+id/authorTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="andrzej33"
                     android:layout_marginStart="40dp"
+                    android:text="andrzej33"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     android:textStyle="italic"
@@ -52,20 +52,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/todoTextView"
                     app:layout_constraintVertical_bias="1.0" />
-            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/deleteGoalButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:background="@color/simpleRow"
-                android:src="@drawable/ic_baseline_delete_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.6"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.141" />
+                <TextView
+                    android:id="@+id/dateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="25.03.2021 13 30"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

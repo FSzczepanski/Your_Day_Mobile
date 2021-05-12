@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/accent2"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="83dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/accent2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/todo"
             android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-
-            android:background="@drawable/goal_shape"
-            android:layout_height="76dp">
+            android:layout_height="76dp"
+            android:background="@drawable/goal_shape">
 
             <LinearLayout
                 android:layout_width="55dp"
@@ -27,12 +31,13 @@
 
 
             </LinearLayout>
+
             <TextView
                 android:id="@+id/todoTextView"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_marginEnd="50dp"
                 android:layout_marginStart="64dp"
+                android:layout_marginEnd="50dp"
                 android:text="Goal conent"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -45,7 +50,7 @@
                 android:id="@+id/idDoneCB"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="42dp"
+                android:layout_marginStart="58dp"
                 android:layout_marginBottom="4dp"
                 android:scaleX="1.30"
                 android:scaleY="1.30"
@@ -56,12 +61,12 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageButton
-                android:id="@+id/deleteGoalButton"
+                android:id="@+id/editTodoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:background="@color/simpleRow"
-                android:src="@drawable/ic_baseline_delete_24"
+                android:src="@drawable/ic_baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.6"
@@ -71,4 +76,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

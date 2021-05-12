@@ -2,7 +2,6 @@ package com.example.yourdaymobile.ui.mainpage;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,23 +14,20 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.JsonReader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.yourdaymobile.MainActivity;
+import com.example.yourdaymobile.ui.MainActivity;
 import com.example.yourdaymobile.R;
-import com.example.yourdaymobile.Singleton;
+import com.example.yourdaymobile.utilities.OnHttpActionDone;
+import com.example.yourdaymobile.utilities.Singleton;
 import com.example.yourdaymobile.data.Todo;
-import com.example.yourdaymobile.ui.TabLayoutDisabler;
+import com.example.yourdaymobile.utilities.TabLayoutDisabler;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -44,6 +40,8 @@ public class MainPageFragment extends Fragment implements TabLayoutDisabler {
     private RecyclerView recyclerTodos;
     private TodosAdapter todosAdapter;
     private ArrayList<Todo> todosList;
+    private AddNewTodoDialog dialog;
+    private AddCityDialog addCityDialog;
 
 
     public static MainPageFragment newInstance() {
@@ -68,18 +66,32 @@ public class MainPageFragment extends Fragment implements TabLayoutDisabler {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(MainPageViewModel.class);
         mViewModel.setContext(getContext());
+        addTodo();
         setUpList();
+        weatherWidget();
+    }
 
+    public void setUpList() {
 
-
+        DownloadTask task = new DownloadTask();
+        task.execute("http://192.168.0.12:3000/note");
 
     }
 
-    private void setUpList() {
-
-        DownloadTask task = new DownloadTask();
-        task.execute(twojeip"/notes");
-
+    private void addTodo(){
+        FloatingActionButton addButton = root.findViewById(R.id.addNewTodo);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog = new AddNewTodoDialog(mViewModel, new OnHttpActionDone() {
+                    @Override
+                    public void onDone() {
+                        refreshList();
+                    }
+                });
+                dialog.show(getParentFragmentManager(), "DialogFragment");
+            }
+        });
     }
 
 
@@ -91,6 +103,57 @@ public class MainPageFragment extends Fragment implements TabLayoutDisabler {
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     }
 
+    private void refreshList(){
+        recyclerTodos = root.findViewById(R.id.todosRV);
+        recyclerTodos.setLayoutManager(new LinearLayoutManager(getActivity()));
+        todosAdapter = new TodosAdapter(getActivity(), new ArrayList<Todo>(), mViewModel,getParentFragmentManager(), new OnHttpActionDone() {
+            @Override
+            public void onDone() {
+                refreshList();
+            }
+        });
+        recyclerTodos.setAdapter(todosAdapter);
+        todosAdapter.notifyDataSetChanged();
+
+        setUpList();
+    }
+
+    public void weatherWidget(){
+        mViewModel.getWeather("Gdansk", new WeatherCallback() {
+            @Override
+            public void onCallback(String city,String temp, String weatherDescription) {
+                TextView cityTV = root.findViewById(R.id.cityTV);
+                TextView tempTV = root.findViewById(R.id.tempTv);
+                TextView descTV = root.findViewById(R.id.weatherDescTV);
+                cityTV.setText(city);
+                String[] tTab = temp.split("\\.");
+                tempTV.setText(tTab[0]+"°C");
+                descTV.setText(weatherDescription);
+            }
+        });
+
+        View weatherView = root.findViewById(R.id.weatherView);
+        weatherView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCityDialog = new AddCityDialog(mViewModel, new WeatherCallback() {
+                    @Override
+                    public void onCallback(String city,String temp, String weatherDescription) {
+                        TextView cityTV = root.findViewById(R.id.cityTV);
+                        TextView tempTV = root.findViewById(R.id.tempTv);
+                        TextView descTV = root.findViewById(R.id.weatherDescTV);
+                        cityTV.setText(city);
+                        tempTV.setText(temp+"°C");
+                        descTV.setText(weatherDescription);
+
+                    }
+                });
+
+                addCityDialog.show(getParentFragmentManager(),"Dialog");
+            }
+        });
+    }
+
     @Override
     public void hideTabLayout() {
 
@@ -100,6 +163,7 @@ public class MainPageFragment extends Fragment implements TabLayoutDisabler {
     public void showTabLayout() {
         MainActivity.showTabLayout();
     }
+
 
 
 
@@ -138,7 +202,12 @@ public class MainPageFragment extends Fragment implements TabLayoutDisabler {
                 }else {
                     recyclerTodos = root.findViewById(R.id.todosRV);
                     recyclerTodos.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    todosAdapter = new TodosAdapter(getActivity(), todos);
+                    todosAdapter = new TodosAdapter(getActivity(), todos, mViewModel,getParentFragmentManager(), new OnHttpActionDone() {
+                        @Override
+                        public void onDone() {
+                            refreshList();
+                        }
+                    });
                     recyclerTodos.setAdapter(todosAdapter);
                     todosAdapter.notifyDataSetChanged();
                     progressDialog.dismiss();

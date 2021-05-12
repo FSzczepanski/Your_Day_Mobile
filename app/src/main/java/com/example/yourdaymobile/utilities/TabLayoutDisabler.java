@@ -1,4 +1,4 @@
-package com.example.yourdaymobile.ui;
+package com.example.yourdaymobile.utilities;
 
 public interface TabLayoutDisabler {
     public void hideTabLayout();

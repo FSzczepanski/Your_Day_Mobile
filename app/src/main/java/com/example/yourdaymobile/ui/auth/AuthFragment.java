@@ -3,7 +3,6 @@ package com.example.yourdaymobile.ui.auth;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,9 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,19 +19,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.yourdaymobile.MainActivity;
+import com.example.yourdaymobile.ui.MainActivity;
 import com.example.yourdaymobile.R;
-import com.example.yourdaymobile.Singleton;
-import com.example.yourdaymobile.data.Todo;
-import com.example.yourdaymobile.ui.TabLayoutDisabler;
-import com.example.yourdaymobile.ui.mainpage.TodosAdapter;
+import com.example.yourdaymobile.utilities.Singleton;
+import com.example.yourdaymobile.utilities.TabLayoutDisabler;
 
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 
 public class AuthFragment extends Fragment implements TabLayoutDisabler {
 
