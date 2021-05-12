@@ -2,11 +2,12 @@
 
 # Dokumentacja na zajęcia:
 
-# Aplikacja mobilna, Android Studio + Java, MVVM Pattern, Firebase authentication
+# Aplikacja mobilna, Android Studio + Java, Api - Async Task/Volley - OpenWeatherMap - wykorzystanie w API restowym 
 
 # Identyfikacja raportu
 
-**Nazwa** **przedmiotu**: Programowanie Aplikacji Mobilnych
+**Nazwa** **przedmiotu**: 	
+Przetwarzanie danych w chmurze obliczeniowej
 
 **Grupa**: S2232
 
