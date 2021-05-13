@@ -18,6 +18,7 @@ Przetwarzanie danych w chmurze obliczeniowej
 - Filip Szczepański  
 - Mateusz Sobczyk  
 
+
 # Cel projektu
 
 Your Day Mobile jest aplikacją mobilną dla serwisu Your Day. Aplikacja korzysta z api, które jest obsługiwane za pomocą async tasków i biblioteki Volley. Your Day Mobile pozwala na dodawanie, edycje oraz usuwanie własnych zadań. oraz na dodawanie publicznych dla całej organizacji postów. Poza tym jest aplikacja wyświetla aktualną pogodę.
