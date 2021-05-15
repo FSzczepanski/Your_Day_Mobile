@@ -783,43 +783,6 @@ public class WallFragment extends Fragment {
 
 WallFragmentViewModel.java
 ```java
-package com.example.yourdaymobile.ui.wall;
-
-import android.content.Context;
-import android.util.JsonReader;
-import android.util.Log;
-
-import androidx.lifecycle.ViewModel;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Cache;
-import com.android.volley.Network;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.yourdaymobile.data.Post;
-import com.example.yourdaymobile.data.Todo;
-import com.example.yourdaymobile.utilities.OnHttpActionDone;
-import com.example.yourdaymobile.utilities.Singleton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class WallViewModel extends ViewModel {
     private Context context;
