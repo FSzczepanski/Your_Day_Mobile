@@ -1,23 +1,8 @@
 # Your_Day_Mobile
 
-# Dokumentacja na zajęcia:
+# Dokumentacja:
 
 # Aplikacja mobilna, Android Studio + Java, Api - Async Task/Volley - OpenWeatherMap - wykorzystanie w API restowym 
-
-# Identyfikacja raportu
-
-**Nazwa** **przedmiotu**: 	
-Przetwarzanie danych w chmurze obliczeniowej
-
-**Grupa**: S2232
-
-**Rok**: II (4 semestr)
-
-**Osoby** **tworzące** **projekt**:
-
-- Filip Szczepański  
-- Mateusz Sobczyk  
-
 
 # Cel projektu
 
